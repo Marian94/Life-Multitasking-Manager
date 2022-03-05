@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css?family=Bevan");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.p404 {
+    font-family: "Bevan", cursive;
+    font-size: 130px;
+    margin: 10vh 0 0;
+    text-align: center;
+    letter-spacing: 5px;
+    background-color: white;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+}
+
+.span404 {
+    font-size: 1.2em;
+}
+
+p.notice {
+    font-size: 30px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 40px 0 30px;
+    text-align: center;
+    color: #ffffff;
+    font-weight: bold;
+}
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+  }

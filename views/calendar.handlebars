@@ -1,0 +1,142 @@
+
+<link rel='stylesheet' href='/css/calendar.css' />
+<div class='container-calendar'>  
+  {{#if logged_in}}
+    <button  id='logout'>logout</button>
+  {{/if}}
+  
+  <div class='todo-grid-parent'>
+    <div>
+
+      {{!       ADD NEW TASK     }}
+      <div class='todo-input todo-block'>
+        <span>Project Title: </span>
+        <div class='form-floating'>
+          <input
+            type='text'
+            class='form-control'
+            id='titleTask'
+            placeholder='Enter new task'
+          />
+          <label for='floatingInput'>Enter new project</label>
+        </div>
+        <span>Description: </span>
+        <div class='form-floating'>
+          <input
+            type='text'
+            class='form-control'
+            id='description'
+            placeholder='Enter new task'
+          />
+          <label for='floatingInput'>Description</label>
+        </div>
+        <span>Category: </span>
+        <select
+          class='form-select'
+          id='categoryList'
+          list='categoryList'
+          aria-label='Select category'
+        >
+          <option selected>Select category</option>
+          <option value='Personal'>Personal</option>
+          <option value='Work'>Work</option>
+          <option value='Doctor'>Doctor</option>
+        </select>
+        <span>Dead Line:</span>
+        <input type='date' id='startDate' onkeydown='return false' />
+        <span>Time:</span>
+        <input type='time' id='startTime' />
+        <span></span>
+        <button id='addTaskBtn'>Add</button>
+      </div>
+      {{! TABLE WITH ALL TASK }}
+      <div class='todo-block todoTable-block'>
+        <div class='itemsPerPage'>
+          <span>Show Items</span>
+          <select id='itemsPerPageSelectElem'>
+            <option>5</option>
+            <option>10</option>
+            <option>20</option>
+          </select>
+        </div>
+        <table id='todoTable'>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Task Title</th>
+            <th>
+              <select
+                class='form-select'
+                id='categoryFilter'
+                list='categoryFilter'
+                aria-label='Select category'
+              >
+              </select>
+            </th>
+          </tr>
+        </table>
+        <div class='pagination-pages'>
+        </div>
+        <button id='sortTaskBtn'>Sort project by deadline</button>
+      </div>
+    </div>
+    {{! CALENDAR }}
+    <div class='todo-calendar todo-block'>
+      <div id='calendar'></div>
+    </div>
+    <br />
+  </div>
+
+  {{! EDIT TASK MODAL }}
+  <div class='todo-overlay' id='todo-overlay'>
+    <div class='todo-modal' id='todo-modal'>
+      <div class='todo-input todo-block'>
+        <span>Project Title: </span>
+        <div class='form-floating signUp'>
+          <input
+            type='text'
+            class='form-control'
+            id='todo-edit-todo'
+            placeholder='Enter new task'
+          />
+          <label for='floatingInput'>Enter new project</label>
+        </div>
+        <span>Description: </span>
+        <div class='form-floating'>
+          <input
+            type='text'
+            class='form-control'
+            id='edit-description'
+            placeholder='Enter new task'
+          />
+          <label for='floatingInput'>Description</label>
+        </div>
+        <span>Category: </span>
+        <select
+          class='form-select'
+          id='todo-edit-category'
+          list='categoryList'
+          aria-label='Select category'
+        >
+          <option selected>Select category</option>
+          <option value='Personal'>Personal</option>
+          <option value='Work'>Work</option>
+          <option value='Doctor'>Doctor</option>
+        </select>
+        <span>Deadline:</span>
+        <input type='date' id='todo-edit-date' onkeydown='return false' />
+        <span>Time:</span>
+        <input type='time' id='todo-edit-time' />
+        <span>Activities</span>
+        <span><a id="readActivities">Read</a> <a id="addActivities">Add</a></span>
+
+        <button id='saveChangesBtn'>Save Changes</button>
+      </div>
+    </div>
+    <div class='todo-modal-close-btn' id='todo-modal-close-btn'>X</div>
+  </div>
+</div>
+<script src='/js/calendar.js'></script>
+{{#if logged_in}}
+  <script src='/js/logout.js'></script>
+{{/if}}
